@@ -21,7 +21,29 @@
             <input type="text" id="image_url">
             <button id="submit_button"><i class='bx bx-search'></i> Detect</button>
         </div>
+
+        <input type="file" id="fileInput">
+        <img id="imageElement" alt="Saved Photo">
+
     </div>
+
+    
+
+    <script>
+      const fileInput = document.getElementById('fileInput');
+      const imageElement = document.getElementById('imageElement');
+      const targetInput = document.getElementById('image_url');
+
+      fileInput.addEventListener('change', function() {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imageElement.src = e.target.result;
+          targetInput.value = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      });
+    </script>
 
     <!-- Load TensorFlow.js. This is required to use MobileNet. -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script> 

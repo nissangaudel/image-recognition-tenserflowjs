@@ -12,15 +12,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 class="heading">Image Recognization</h1>
+    <p class="sub_heading">Using TenserflowJs</p>
+    <!-- Camera -->
+    <main id="camera">        
+        <!-- Camera sensor -->
+        <canvas id="camera--sensor"></canvas>        
+        <!-- Camera view -->
+        <video id="camera--view" autoplay playsinline></video>        
+        <!-- Camera output -->
+        <img src="//:0" alt="" id="camera--output">        
+        <!-- Camera trigger -->
+    </main>
+
     <div class="content">
-        <h1 class="heading">Image Recognization</h1>
-        <p class="sub_heading">Using TenserflowJs</p>
-        <img id="img" crossorigin="anonymous"></img>
-        <p id="prediction"></p>
+        <img id="img" crossorigin="anonymous" alt=""></img>
         <div class="form">
             <input type="text" id="image_url">
-            <button id="submit_button"><i class='bx bx-search'></i> Detect</button>
+            <input type="file" id="fileInput">
+            <button id="camera--trigger"><i class='bx bx-search'></i> Detect</button>
+            <button id="next"><i class='bx bxs-camera'></i> </i>More</button>
         </div>
+        <p id="prediction"></p>
     </div>
 
     <!-- Load TensorFlow.js. This is required to use MobileNet. -->

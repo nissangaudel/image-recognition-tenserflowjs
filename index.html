@@ -1,3 +1,38 @@
+
+Skip to content
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+@nissangaudel
+nissangaudel /
+image-recognition-tenserflowjs
+Public
+
+Fork your own copy of nissangaudel/image-recognition-tenserflowjs
+
+Code
+Issues
+Pull requests 1
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+Beta Try the new code view
+image-recognition-tenserflowjs/index.html
+@yunkijung
+yunkijung select functionality added
+Latest commit 47dbf97 Apr 18, 2023
+History
+2 contributors
+@nissangaudel
+@yunkijung
+55 lines (47 sloc) 2.07 KB
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,29 +47,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="heading">Image Recognization</h1>
-    <p class="sub_heading">Using TenserflowJs</p>
-    <!-- Camera -->
-    <main id="camera">        
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>        
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>        
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">        
-        <!-- Camera trigger -->
-    </main>
-
     <div class="content">
-        <img id="img" crossorigin="anonymous" alt=""></img>
+        <h1 class="heading">Image Recognization</h1>
+        <p class="sub_heading">Using TenserflowJs</p>
+        <img id="img" crossorigin="anonymous"></img>
+        <p id="prediction"></p>
         <div class="form">
             <input type="text" id="image_url">
-            <input type="file" id="fileInput">
-            <button id="camera--trigger"><i class='bx bx-search'></i> Detect</button>
-            <button id="next"><i class='bx bxs-camera'></i> </i>More</button>
+            <button id="submit_button"><i class='bx bx-search'></i> Detect</button>
         </div>
-        <p id="prediction"></p>
+
+        <input type="file" id="fileInput">
+        <img id="imageElement" alt="Saved Photo">
+
     </div>
+
+    
+
+    <script>
+      const fileInput = document.getElementById('fileInput');
+      const imageElement = document.getElementById('imageElement');
+      const targetInput = document.getElementById('image_url');
+
+      fileInput.addEventListener('change', function() {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imageElement.src = e.target.result;
+          targetInput.value = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      });
+    </script>
 
     <!-- Load TensorFlow.js. This is required to use MobileNet. -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script> 
@@ -44,3 +88,20 @@
     <script src="index.js"></script>
 </body>
 </html>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+image-recognition-tenserflowjs/index.html at new · nissangaudel/image-recognition-tenserflowjs

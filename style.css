@@ -59,3 +59,7 @@ html, body {
     margin: 20px auto;
 
 }
+
+#imageElement {
+    display: none;
+}
